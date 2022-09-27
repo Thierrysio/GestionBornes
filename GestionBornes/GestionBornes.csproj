@@ -56,9 +56,12 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Modeles\" />
-	  <Folder Include="VueModeles\" />
-	  <Folder Include="Vues\" />
+	  <MauiXaml Update="App.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Vues\BornesVue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

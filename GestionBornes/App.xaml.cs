@@ -1,11 +1,26 @@
-﻿namespace GestionBornes;
+using GestionBornes.Services;
+using GestionBornes.Vues;
+
+namespace GestionBornes;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    static GestionDatabase database;
+    public App()
+    {
+        InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new MainPage();
+    }
+    public static GestionDatabase Database
+    {
+        get
+        {
+            if (database == null)
+            {
+                database = new GestionDatabase();
+            }
+            return database;
+        }
+    }
 }

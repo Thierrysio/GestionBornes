@@ -33,37 +33,46 @@ namespace GestionBornes.Services
             if (!initialized)
             {
 
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Magasin).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Bornes).Name))
                 {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Magasin)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Bornes)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Vendre).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Villes).Name))
                 {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Vendre)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Villes)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Pays).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Incidents).Name))
                 {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Pays)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Incidents)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Ville).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Techniciens).Name))
                 {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Ville)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Techniciens)).ConfigureAwait(false);
 
                 }
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Intervenir).Name))
+                {
+
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Intervenir)).ConfigureAwait(false);
+
+                }
+
+
+
             }
                 initialized = true;
         }
         public Task<int> SaveItemAsync<T>(T item)
         {
 
-            PropertyInfo x = (item.GetType().GetProperty("ID"));
+            PropertyInfo x = (item.GetType().GetProperty("Id"));
             int nbi = Convert.ToInt32(x.GetValue(item));
             if (nbi != 0)
             {
@@ -94,7 +103,7 @@ namespace GestionBornes.Services
         }
         public Task<T> GetItemAvecRelations<T>(T item) where T : new()
         {
-            PropertyInfo x = (item.GetType().GetProperty("ID"));
+            PropertyInfo x = (item.GetType().GetProperty("Id"));
             int nbi = Convert.ToInt32(x.GetValue(item));
             return Database.GetWithChildrenAsync<T>(nbi);
         }
