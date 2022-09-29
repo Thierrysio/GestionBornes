@@ -1,4 +1,5 @@
-﻿using SQLiteNetExtensions.Attributes;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace GestionBornes.Modeles
 {
+    [Table("Intervenir")]
     public class Intervenir
     {
         #region Attributs

@@ -10,7 +10,7 @@ namespace GestionBornes
     {
       
 
-        public const string DatabaseFilename = "GestionBornes.db3";
+        public const string DatabaseFilename = "GestionBornes2.db3";
 
         public const SQLite.SQLiteOpenFlags Flags =
             SQLite.SQLiteOpenFlags.ReadWrite |

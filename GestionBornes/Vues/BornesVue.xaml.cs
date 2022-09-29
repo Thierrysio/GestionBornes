@@ -17,8 +17,10 @@ public partial class BornesVue : ContentPage
 
 	public async void Test()
 	{
-		// Creation des objets
-		Villes ville01 = new Villes().AjoutVille("Lannion");
+       
+
+        // Creation des objets
+        Villes ville01 = new Villes().AjoutVille("Lannion");
         Villes ville02 = new Villes().AjoutVille("Rennes");
         Villes ville03 = new Villes().AjoutVille("Lorient");
         //Mapping - insert into
@@ -67,5 +69,7 @@ public partial class BornesVue : ContentPage
         ObservableCollection<Bornes> MaListeBornes = App.Database.GetItemsAsync<Bornes>();
         ObservableCollection<Techniciens> MaListeTechnicienq = App.Database.GetItemsAsync<Techniciens>();
 
+        var mDB = App.Database.GetItemAvecRelations(technicien02);
+        var resultat = mDB.Result;
     }
 }
