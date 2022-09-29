@@ -31,26 +31,33 @@ namespace GestionBornes.Modeles
         #endregion
 
         #region Getters/Setters
-        [PrimaryKey, AutoIncrement]   
+        [PrimaryKey, AutoIncrement]
         public int Id { get => _id; set => _id = value; }
         public string Description { get => _description; set => _description = value; }
         public int Cout { get => _cout; set => _cout = value; }
+        [ForeignKey(typeof(Bornes))]
+        public int BorneId { get; set; }
         [ManyToMany(typeof(Intervenir))]
         public List<Techniciens> LesTechniciens { get => _lesTechniciens; set => _lesTechniciens = value; }
         #endregion
 
         #region Methodes
 
-        public Incidents AjoutIncident(string description,int cout)
+        public Incidents AjoutIncident(string description, int cout, Techniciens leTechnicien, Bornes laBorne)
         {
             this.Id = 0;
             this.Description = description;
             this.Cout = cout;
             this.LesTechniciens = new List<Techniciens>();
+            this.AjoutTechnicien(leTechnicien);
+            laBorne.AjoutIncident(this);
 
             return this;
         }
-
+        public void AjoutTechnicien(Techniciens leTechnicien)
+        {
+            this.LesTechniciens.Add(leTechnicien);
+        }
         #endregion
     }
 }

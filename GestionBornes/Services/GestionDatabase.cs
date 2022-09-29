@@ -32,6 +32,12 @@ namespace GestionBornes.Services
         {
             if (!initialized)
             {
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Villes).Name))
+                {
+
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Villes)).ConfigureAwait(false);
+
+                }
 
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Bornes).Name))
                 {
@@ -39,12 +45,7 @@ namespace GestionBornes.Services
                     await Database.CreateTablesAsync(CreateFlags.None, typeof(Bornes)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Villes).Name))
-                {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Villes)).ConfigureAwait(false);
-
-                }
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Incidents).Name))
                 {
 

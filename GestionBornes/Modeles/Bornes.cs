@@ -46,13 +46,19 @@ namespace GestionBornes.Modeles
 
         #region Methodes
 
-        public Bornes AjoutBorne(string description)
+        public Bornes AjoutBorne(string description,Villes laville)
         {
             this.Id = 0;
             this.Description = description;
+            this.LaVille = laville; 
             this.LesIncidents = new List<Incidents>();
 
             return this;
+        }
+
+        public void AjoutIncident(Incidents leIncident)
+        {
+            this.LesIncidents.Add(leIncident);
         }
 
         #endregion

@@ -13,6 +13,7 @@ namespace GestionBornes.Modeles
         #region Attributs
         private int _id;
         private string _nom;
+        private List<Bornes> _lesBornes;
         
         #endregion
 
@@ -30,6 +31,8 @@ namespace GestionBornes.Modeles
         [PrimaryKey, AutoIncrement]
         public int Id { get => _id; set => _id = value; }
         public string Nom { get => _nom; set => _nom = value; }
+        [OneToMany]
+        public List<Bornes> LesBornes { get => _lesBornes; set => _lesBornes = value; }
         #endregion
 
         #region Methodes
@@ -37,8 +40,9 @@ namespace GestionBornes.Modeles
         {
             this.Id = 0;
             this.Nom = nom;
-
+            this.LesBornes = new List<Bornes>();
             return this;
+            
         }
         #endregion
     }
