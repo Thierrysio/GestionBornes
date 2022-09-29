@@ -30,10 +30,16 @@ namespace GestionBornes.Modeles
         [PrimaryKey, AutoIncrement]
         public int Id { get => _id; set => _id = value; }
         public string Nom { get => _nom; set => _nom = value; }
-         #endregion
+        #endregion
 
         #region Methodes
+        public Villes AjoutVille(string nom)
+        {
+            this.Id = 0;
+            this.Nom = nom;
 
+            return this;
+        }
         #endregion
     }
 }

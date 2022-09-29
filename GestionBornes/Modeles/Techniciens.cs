@@ -37,6 +37,15 @@ namespace GestionBornes.Modeles
 
         #region Methodes
 
+        public Techniciens AjoutTechnicien(string nom)
+        {
+            this.Id = 0;
+            this.Nom = nom;
+            this.LesIncidents = new List<Incidents>();
+
+            return this;
+        }
+
         #endregion
     }
 }

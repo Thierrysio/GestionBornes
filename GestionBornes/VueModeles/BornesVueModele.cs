@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GestionBornes.VueModeles
 {
-    internal class BornesVueModele
+    public class BornesVueModele
     {
     }
 }

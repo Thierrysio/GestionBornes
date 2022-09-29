@@ -23,6 +23,7 @@ namespace GestionBornes.Modeles
 
         public Incidents()
         {
+
         }
 
 
@@ -39,6 +40,16 @@ namespace GestionBornes.Modeles
         #endregion
 
         #region Methodes
+
+        public Incidents AjoutIncident(string description,int cout)
+        {
+            this.Id = 0;
+            this.Description = description;
+            this.Cout = cout;
+            this.LesTechniciens = new List<Techniciens>();
+
+            return this;
+        }
 
         #endregion
     }

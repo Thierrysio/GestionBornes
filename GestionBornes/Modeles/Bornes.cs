@@ -46,6 +46,15 @@ namespace GestionBornes.Modeles
 
         #region Methodes
 
+        public Bornes AjoutBorne(string description)
+        {
+            this.Id = 0;
+            this.Description = description;
+            this.LesIncidents = new List<Incidents>();
+
+            return this;
+        }
+
         #endregion
     }
 }
